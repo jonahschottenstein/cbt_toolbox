@@ -8,7 +8,7 @@ export const BottomTabs = () => {
 	return (
 		<Tab.Navigator>
 			<Tab.Screen name="Home" component={HomeScreen} />
-			<Tab.Screen name="Settings" component={ToolboxEditor} />
+			<Tab.Screen name="Toolbox Editor" component={ToolboxEditor} />
 		</Tab.Navigator>
 	);
 };
