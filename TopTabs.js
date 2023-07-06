@@ -5,8 +5,15 @@ const Tab = createMaterialTopTabNavigator();
 export const TopTabs = ({ tabScreens }) => {
 	return (
 		<Tab.Navigator>
-			{tabScreens.map(({ name, component }) => {
-				return <Tab.Screen key={name} name={name} component={component} />;
+			{tabScreens.map(({ name, component, componentProps }) => {
+				return (
+					<Tab.Screen
+						key={name}
+						name={name}
+						component={component}
+						initialParams={componentProps}
+					/>
+				);
 			})}
 		</Tab.Navigator>
 	);
