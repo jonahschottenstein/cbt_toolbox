@@ -33,7 +33,22 @@ export const ToolAccordion = ({ accordionProps, itemProps }) => {
 					)
 				}
 			/>
-			<List.Item title={() => <Button title="Delete" />} />
+			<List.Item
+				title={() => (
+					<Button
+						mode="contained-tonal"
+						icon="delete"
+						onPress={() =>
+							dispatch({
+								type: "deleted",
+								zone: itemProps.zone,
+								toolIndex: itemProps.toolIndex,
+							})
+						}>
+						Delete
+					</Button>
+				)}
+			/>
 		</List.Accordion>
 	);
 };
