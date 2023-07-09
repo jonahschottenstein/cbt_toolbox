@@ -2,6 +2,7 @@ import { Text, View } from "react-native";
 import { ToolAccordionsGroup } from "./ToolAccordionsGroup";
 import { useTools } from "./ToolsContext";
 import { ToolAccordion } from "./ToolAccordion";
+import { AddTool } from "./AddTool";
 
 export const ZoneScreen = ({ route: { params } }) => {
 	const zone = params.zone;
@@ -23,6 +24,7 @@ export const ZoneScreen = ({ route: { params } }) => {
 					/>
 				))}
 			</ToolAccordionsGroup>
+			<AddTool zone={zone} />
 		</View>
 	);
 };
