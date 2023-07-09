@@ -9,8 +9,7 @@ export const ZoneScreen = ({ route: { params } }) => {
 	const zoneTools = tools[zone];
 
 	return (
-		<View style={{ flex: 1, justifyContent: "center" }}>
-			<Text>{zone}</Text>
+		<View style={{ flex: 1 }}>
 			<ToolAccordionsGroup>
 				{zoneTools.map((tool, index) => (
 					<ToolAccordion
