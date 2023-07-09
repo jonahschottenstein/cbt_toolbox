@@ -72,7 +72,7 @@ function toolsReducer(tools, action) {
 }
 
 const initialTools = {
-	blue: [{ index: 0, type: "", value: null }],
+	blue: [],
 	yellow: [],
 	red: [],
 };
