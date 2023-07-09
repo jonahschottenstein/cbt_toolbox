@@ -14,3 +14,11 @@ export function ToolsProvider({ children }) {
 		</ToolsContext.Provider>
 	);
 }
+
+export function useTools() {
+	return useContext(ToolsContext);
+}
+
+export function useToolsDispatch() {
+	return useContext(ToolsDispatchContext);
+}
