@@ -16,7 +16,7 @@ export const ToolAccordion = ({ accordionProps, itemProps }) => {
 				title={
 					<ToolSelector
 						zone={itemProps.zone}
-						toolIndex={0}
+						toolIndex={itemProps.toolIndex}
 						value={value}
 						setValue={setValue}
 					/>
