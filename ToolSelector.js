@@ -3,13 +3,11 @@ import { SegmentedButtons } from "react-native-paper";
 import { useToolsDispatch } from "./ToolsContext";
 import { useState } from "react";
 
-export const ToolSelector = ({ zone, toolIndex }) => {
-	const [value, setValue] = useState("");
+export const ToolSelector = ({ zone, toolIndex, value, setValue }) => {
 	const dispatch = useToolsDispatch();
 
 	return (
-		<View>
-			<Text>Select tool:</Text>
+		<View style={{ width: 340 }}>
 			<SegmentedButtons
 				value={value}
 				onValueChange={setValue}
