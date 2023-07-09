@@ -24,6 +24,8 @@ export const ToolAccordion = ({ accordionProps, itemProps }) => {
 				title={() =>
 					itemProps.toolType === "breathing" ? (
 						<BreathingInputsGroup />
+					) : itemProps.toolType === "instruction" ? (
+						<InstructionInputsGroup />
 					) : (
 						<Text>Select tool</Text>
 					)
