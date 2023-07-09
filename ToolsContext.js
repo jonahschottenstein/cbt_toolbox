@@ -35,6 +35,7 @@ function toolsReducer(tools, action) {
 				...indexedZoneTools,
 				{ index: indexedZoneTools.length, type: "", value: null },
 			];
+			console.log("ADDED", updatedZoneTools);
 
 			return { ...tools, [action.zone]: updatedZoneTools };
 		}
@@ -47,6 +48,20 @@ function toolsReducer(tools, action) {
 					return tool;
 				}
 			});
+			console.log("CHANGED_TOOL_TYPE", updatedZoneTools);
+
+			return { ...tools, [action.zone]: updatedZoneTools };
+		}
+		case "deleted": {
+			const zoneTools = [...tools[action.zone]];
+			const filteredTools = zoneTools.filter(
+				(tool) => tool.index !== action.toolIndex
+			);
+			const updatedZoneTools = filteredTools.map((tool, newIndex) => ({
+				...tool,
+				index: newIndex,
+			}));
+			console.log("DELETED", updatedZoneTools);
 
 			return { ...tools, [action.zone]: updatedZoneTools };
 		}
