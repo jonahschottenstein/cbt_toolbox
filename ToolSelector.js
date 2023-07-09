@@ -7,8 +7,9 @@ export const ToolSelector = ({ zone, toolIndex, value, setValue }) => {
 	const dispatch = useToolsDispatch();
 
 	return (
-		<View style={{ width: 340 }}>
+		<View style={{ width: "100%" }}>
 			<SegmentedButtons
+				style={{ width: "100%" }}
 				value={value}
 				onValueChange={setValue}
 				buttons={[

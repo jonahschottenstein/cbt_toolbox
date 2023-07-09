@@ -3,6 +3,7 @@ import { List } from "react-native-paper";
 import { BreathingInputsGroup } from "./BreathingInputsGroup";
 import { ToolSelector } from "./ToolSelector";
 import { useState } from "react";
+import { InstructionInputsGroup } from "./InstructionInputsGroup";
 
 export const ToolAccordion = ({ accordionProps, itemProps }) => {
 	const [value, setValue] = useState("");
@@ -10,7 +11,8 @@ export const ToolAccordion = ({ accordionProps, itemProps }) => {
 	return (
 		<List.Accordion title={accordionProps.title} id={accordionProps.id}>
 			<List.Item
-				titleStyle={{ width: 340, height: 45 }}
+				style={{ width: "100%" }}
+				titleStyle={{ width: "100%" }}
 				title={
 					<ToolSelector
 						zone={itemProps.zone}
