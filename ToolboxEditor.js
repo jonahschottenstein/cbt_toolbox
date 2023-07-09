@@ -9,14 +9,14 @@ const tabScreens = [
 	{
 		name: "blue zone",
 		component: ZoneScreen,
-		componentProps: { zone: "BLUE" },
+		componentProps: { zone: "blue" },
 	},
 	{
 		name: "yellow zone",
 		component: ZoneScreen,
-		componentProps: { zone: "YELLOW" },
+		componentProps: { zone: "yellow" },
 	},
-	{ name: "red zone", component: ZoneScreen, componentProps: { zone: "RED" } },
+	{ name: "red zone", component: ZoneScreen, componentProps: { zone: "red" } },
 ];
 
 export const ToolboxEditor = () => {
