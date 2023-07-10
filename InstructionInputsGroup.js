@@ -1,11 +1,14 @@
 import * as ImagePicker from "expo-image-picker";
 import { Button, TextInput } from "react-native-paper";
-import { useState } from "react";
 import { Image, View } from "react-native";
+import { useTools, useToolsDispatch } from "./ToolsContext";
 
-export const InstructionInputsGroup = () => {
-	const [image, setImage] = useState(null);
-	const [text, setText] = useState("");
+export const InstructionInputsGroup = ({ zone, toolIndex }) => {
+	const tools = useTools();
+	const zoneTools = tools[zone];
+	const dispatch = useToolsDispatch();
+
+	const image = zoneTools[toolIndex]["value"]["image"];
 
 	const pickImage = async () => {
 		let result = await ImagePicker.launchImageLibraryAsync({
@@ -15,10 +18,14 @@ export const InstructionInputsGroup = () => {
 			quality: 1,
 		});
 
-		console.log(result);
-
 		if (!result.canceled) {
-			setImage(result.assets[0].uri);
+			dispatch({
+				type: "changed_instruction_value",
+				zone: zone,
+				toolIndex: toolIndex,
+				label: "image",
+				nextValue: result.assets[0].uri,
+			});
 		}
 	};
 
@@ -29,8 +36,16 @@ export const InstructionInputsGroup = () => {
 				style={{ width: 300 }}
 				mode="outlined"
 				label="Message"
-				value={text}
-				onChangeText={(text) => setText(text)}
+				value={zoneTools[toolIndex]["value"]["message"]}
+				onChangeText={(text) =>
+					dispatch({
+						type: "changed_instruction_value",
+						zone: zone,
+						toolIndex: toolIndex,
+						label: "message",
+						nextValue: text,
+					})
+				}
 			/>
 			{image && (
 				<Image source={{ uri: image }} style={{ width: 200, height: 200 }} />
