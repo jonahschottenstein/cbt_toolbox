@@ -20,7 +20,10 @@ export const ToolAccordion = ({ accordionProps, itemProps }) => {
 			<List.Item
 				title={() =>
 					itemProps.toolType === "breathing" ? (
-						<BreathingInputsGroup />
+						<BreathingInputsGroup
+							zone={itemProps.zone}
+							toolIndex={itemProps.toolIndex}
+						/>
 					) : itemProps.toolType === "instruction" ? (
 						<InstructionInputsGroup />
 					) : (
