@@ -1,4 +1,4 @@
-import { Text, View } from "react-native";
+import { ScrollView, Text, View } from "react-native";
 import { ToolAccordionsGroup } from "./ToolAccordionsGroup";
 import { useTools } from "./ToolsContext";
 import { ToolAccordion } from "./ToolAccordion";
@@ -10,7 +10,7 @@ export const ZoneScreen = ({ route: { params } }) => {
 	const zoneTools = tools[zone];
 
 	return (
-		<View style={{ flex: 1 }}>
+		<ScrollView style={{ flex: 1 }}>
 			<ToolAccordionsGroup>
 				{zoneTools.map((tool, index) => (
 					<ToolAccordion
@@ -27,6 +27,6 @@ export const ZoneScreen = ({ route: { params } }) => {
 				))}
 			</ToolAccordionsGroup>
 			<AddTool zone={zone} />
-		</View>
+		</ScrollView>
 	);
 };
