@@ -70,6 +70,25 @@ function toolsReducer(tools, action) {
 
 			return { ...tools, [action.zone]: updatedZoneTools };
 		}
+		case "changed_breathing_value": {
+			const zoneTools = [...tools[action.zone]];
+			const updatedZoneTools = zoneTools.map((tool) => {
+				if (tool.index === action.toolIndex) {
+					const newTool = { ...tool };
+					const newValue = {
+						...newTool.value,
+						[action.label.toLowerCase()]: action.nextValue,
+					};
+
+					return { ...newTool, value: newValue };
+				} else {
+					return tool;
+				}
+			});
+			console.log("CHANGED BREATHING VALUE", updatedZoneTools);
+
+			return { ...tools, [action.zone]: updatedZoneTools };
+		}
 		default: {
 			throw Error("Unknown action: " + action.type);
 		}
