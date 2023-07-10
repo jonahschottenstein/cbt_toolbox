@@ -1,7 +1,10 @@
 import { Text, View } from "react-native";
 import InputSpinner from "react-native-input-spinner";
+import { useToolsDispatch } from "./ToolsContext";
 
-export const BreathingInput = ({ label, value, onChange }) => {
+export const BreathingInput = ({ label, value, zone, toolIndex }) => {
+	const dispatch = useToolsDispatch();
+
 	return (
 		<View
 			style={{
@@ -19,7 +22,15 @@ export const BreathingInput = ({ label, value, onChange }) => {
 				colorMin={"#40c5f4"}
 				skin="modern"
 				value={value}
-				onChange={onChange}
+				onChange={(value) =>
+					dispatch({
+						type: "changed_breathing_value",
+						zone: zone,
+						toolIndex: toolIndex,
+						label: label,
+						nextValue: value,
+					})
+				}
 			/>
 		</View>
 	);
