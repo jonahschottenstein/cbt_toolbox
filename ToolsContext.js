@@ -45,7 +45,7 @@ function toolsReducer(tools, action) {
 				if (tool.index === action.toolIndex) {
 					const toolValue =
 						action.nextToolType === "breathing"
-							? { inhale: 5, hold: 5, exhale: 5, rest: 5, sets: 5 }
+							? { inhale: 5.99, hold: 5.99, exhale: 5.99, rest: 5.99, sets: 5 }
 							: action.nextToolType === "instruction"
 							? { message: "", image: null }
 							: null;
