@@ -46,8 +46,10 @@ function toolsReducer(tools, action) {
 					const toolValue =
 						action.nextToolType === "breathing"
 							? { inhale: 5, hold: 5, exhale: 5, rest: 5, sets: 5 }
+							: action.nextToolType === "instruction"
+							? { message: "", image: null }
 							: null;
-					// Still need to add initial toolValue for instruction & video
+					// Still need to add initial toolValue for video
 					return { ...tool, type: action.nextToolType, value: toolValue };
 				} else {
 					return tool;
