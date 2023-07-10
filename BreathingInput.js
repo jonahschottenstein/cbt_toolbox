@@ -28,7 +28,7 @@ export const BreathingInput = ({ label, value, zone, toolIndex }) => {
 						zone: zone,
 						toolIndex: toolIndex,
 						label: label,
-						nextValue: value,
+						nextValue: value + 0.99,
 					})
 				}
 			/>
