@@ -1,7 +1,6 @@
+import "react-native-gesture-handler";
 import { PaperProvider } from "react-native-paper";
 import { NavigationContainer } from "@react-navigation/native";
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
 import { BottomTabs } from "./BottomTabs";
 import { ToolsProvider } from "./ToolsContext";
 
