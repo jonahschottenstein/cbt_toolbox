@@ -43,7 +43,12 @@ function toolsReducer(tools, action) {
 			const zoneTools = [...tools[action.zone]];
 			const updatedZoneTools = zoneTools.map((tool) => {
 				if (tool.index === action.toolIndex) {
-					return { ...tool, type: action.nextToolType };
+					const toolValue =
+						action.nextToolType === "breathing"
+							? { inhale: 5, hold: 5, exhale: 5, rest: 5, sets: 5 }
+							: null;
+					// Still need to add initial toolValue for instruction & video
+					return { ...tool, type: action.nextToolType, value: toolValue };
 				} else {
 					return tool;
 				}
