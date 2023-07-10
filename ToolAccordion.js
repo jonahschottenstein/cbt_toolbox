@@ -25,7 +25,10 @@ export const ToolAccordion = ({ accordionProps, itemProps }) => {
 							toolIndex={itemProps.toolIndex}
 						/>
 					) : itemProps.toolType === "instruction" ? (
-						<InstructionInputsGroup />
+						<InstructionInputsGroup
+							zone={itemProps.zone}
+							toolIndex={itemProps.toolIndex}
+						/>
 					) : (
 						<Text>Select tool</Text>
 					)
