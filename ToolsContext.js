@@ -24,9 +24,10 @@ export function useToolsDispatch() {
 }
 
 function toolsReducer(tools, action) {
+	const zoneTools = [...tools[action.zone]];
+
 	switch (action.type) {
 		case "added": {
-			const zoneTools = [...tools[action.zone]];
 			const indexedZoneTools = zoneTools.map((obj, newIndex) => ({
 				...obj,
 				index: newIndex,
@@ -40,7 +41,6 @@ function toolsReducer(tools, action) {
 			return { ...tools, [action.zone]: updatedZoneTools };
 		}
 		case "changed_tool_type": {
-			const zoneTools = [...tools[action.zone]];
 			const updatedZoneTools = zoneTools.map((tool) => {
 				if (tool.index === action.toolIndex) {
 					const toolValue =
@@ -58,7 +58,6 @@ function toolsReducer(tools, action) {
 			return { ...tools, [action.zone]: updatedZoneTools };
 		}
 		case "deleted": {
-			const zoneTools = [...tools[action.zone]];
 			const filteredTools = zoneTools.filter(
 				(tool) => tool.index !== action.toolIndex
 			);
@@ -71,7 +70,6 @@ function toolsReducer(tools, action) {
 			return { ...tools, [action.zone]: updatedZoneTools };
 		}
 		case "changed_breathing_value": {
-			const zoneTools = [...tools[action.zone]];
 			const updatedZoneTools = zoneTools.map((tool) => {
 				if (tool.index === action.toolIndex) {
 					const newTool = { ...tool };
