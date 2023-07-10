@@ -89,6 +89,24 @@ function toolsReducer(tools, action) {
 
 			return { ...tools, [action.zone]: updatedZoneTools };
 		}
+		case "changed_instruction_value": {
+			const updatedZoneTools = zoneTools.map((tool) => {
+				if (tool.index === action.toolIndex) {
+					return {
+						...tool,
+						value: {
+							...tool.value,
+							[action.label.toLowerCase()]: action.nextValue,
+						},
+					};
+				} else {
+					return tool;
+				}
+			});
+			console.log("CHANGED_INSTRUCTION_VALUE", updatedZoneTools);
+
+			return { ...tools, [action.zone]: updatedZoneTools };
+		}
 		default: {
 			throw Error("Unknown action: " + action.type);
 		}
