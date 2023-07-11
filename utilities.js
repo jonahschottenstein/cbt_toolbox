@@ -6,3 +6,11 @@ export const getSameTypeTools = (currentTool, tools) => {
 
 	return sameTypeTools;
 };
+
+export const getToolTypeIndex = (tool, sameTypeTools) => {
+	const toolTypeIndex = sameTypeTools.findIndex(
+		(sameTypeTool) => sameTypeTool.index === tool.index
+	);
+
+	return toolTypeIndex;
+};
