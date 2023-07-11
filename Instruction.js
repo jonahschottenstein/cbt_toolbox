@@ -1,10 +1,14 @@
 import { Image, Text, View } from "react-native";
+import { NextToolButton } from "./NextToolButton";
 
 export const Instruction = ({
 	route: {
-		params: { toolValue },
+		params: { tool, nextTool, tools },
 	},
+	navigation,
 }) => {
+	const toolValue = tool.value;
+
 	return (
 		<View
 			style={{
@@ -22,6 +26,12 @@ export const Instruction = ({
 				style={{ borderWidth: 1, fontSize: 20, padding: 10, width: "100%" }}>
 				{toolValue.message}
 			</Text>
+			<NextToolButton
+				navigation={navigation}
+				tool={tool}
+				nextTool={nextTool}
+				tools={tools}
+			/>
 		</View>
 	);
 };
