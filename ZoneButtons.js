@@ -8,7 +8,6 @@ export const ZoneButtons = ({ navigation }) => {
 				flex: 1,
 				alignItems: "center",
 				justifyContent: "center",
-				borderWidth: 1,
 			}}>
 			<View>
 				<ZoneButton navigation={navigation} zone={"red"} />
