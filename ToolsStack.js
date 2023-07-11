@@ -2,13 +2,19 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { Text } from "react-native";
 import { Breathing } from "./Breathing";
 import { Instruction } from "./Instruction";
-import { getSameTypeTools, getToolTypeIndex } from "./utilities";
+import { capitalize, getSameTypeTools, getToolTypeIndex } from "./utilities";
+import { useTools } from "./ToolsContext";
+import { useCurrentZone } from "./CurrentZoneContext";
+import { ZoneButtons } from "./ZoneButtons";
 
 const Stack = createStackNavigator();
 
-export const ToolsStack = ({ tools }) => {
-	// Need a way to get back to ZoneButtons Screen
-	// Not sure if I need to make it the first Screen in the Stack or if I should do it another way
+// if tool doesn't have type (or value), don't include in ToolsStack
+
+export const ToolsStack = () => {
+	const tools = useTools();
+	const currentZone = useCurrentZone();
+	const zoneTools = tools[currentZone];
 
 	const getComponent = (tool) => {
 		const component =
@@ -26,27 +32,32 @@ export const ToolsStack = ({ tools }) => {
 	const getNextTool = (currentToolIndex, tools) =>
 		tools.find((tool) => tool.index > currentToolIndex && tool.type);
 
-	return tools.length > 0 && tools[0]["type"] !== "" ? (
+	return (
 		<Stack.Navigator>
-			{tools.map((tool) => (
-				<Stack.Screen
-					key={tool.index}
-					name={
-						tool.type.slice(0, 1).toUpperCase() +
-						tool.type.slice(1) +
-						"-" +
-						getToolTypeIndex(tool, getSameTypeTools(tool, tools))
-					}
-					component={getComponent(tool)}
-					initialParams={{
-						tool: tool,
-						nextTool: getNextTool(tool.index, tools),
-						tools: tools,
-					}}
-				/>
-			))}
+			<Stack.Screen name="ZoneButtons" component={ZoneButtons} />
+			{zoneTools &&
+				zoneTools.length > 0 &&
+				zoneTools[0]["type"] !== "" &&
+				zoneTools
+					.filter((tool) => tool.type)
+					.map((tool) => {
+						return (
+							<Stack.Screen
+								key={tool.index}
+								name={
+									capitalize(tool.type) +
+									"-" +
+									getToolTypeIndex(tool, getSameTypeTools(tool, zoneTools))
+								}
+								component={getComponent(tool)}
+								initialParams={{
+									tool: tool,
+									nextTool: getNextTool(tool.index, zoneTools),
+									tools: zoneTools,
+								}}
+							/>
+						);
+					})}
 		</Stack.Navigator>
-	) : (
-		<Text>No tools</Text>
 	);
 };
