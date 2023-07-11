@@ -85,12 +85,14 @@ export const Breathing = ({
 				onStartClick={handleStart}
 				onResetClick={handleReset}
 			/>
-			<NextToolButton
-				navigation={navigation}
-				tool={tool}
-				nextTool={nextTool}
-				tools={tools}
-			/>
+			{nextTool && (
+				<NextToolButton
+					navigation={navigation}
+					tool={tool}
+					nextTool={nextTool}
+					tools={tools}
+				/>
+			)}
 		</>
 	);
 };

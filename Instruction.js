@@ -26,12 +26,14 @@ export const Instruction = ({
 				style={{ borderWidth: 1, fontSize: 20, padding: 10, width: "100%" }}>
 				{toolValue.message}
 			</Text>
-			<NextToolButton
-				navigation={navigation}
-				tool={tool}
-				nextTool={nextTool}
-				tools={tools}
-			/>
+			{nextTool && (
+				<NextToolButton
+					navigation={navigation}
+					tool={tool}
+					nextTool={nextTool}
+					tools={tools}
+				/>
+			)}
 		</View>
 	);
 };
