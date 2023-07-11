@@ -1,6 +1,7 @@
 import { useCurrentZoneSetter } from "./CurrentZoneContext";
 import { useTools } from "./ToolsContext";
 import { Button } from "react-native-paper";
+import { capitalize } from "./utilities";
 
 export const ZoneButton = ({ navigation, zone }) => {
 	const tools = useTools();
