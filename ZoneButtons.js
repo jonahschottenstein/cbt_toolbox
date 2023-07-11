@@ -3,7 +3,13 @@ import { ZoneButton } from "./ZoneButton";
 
 export const ZoneButtons = ({ navigation }) => {
 	return (
-		<View style={{ alignItems: "center" }}>
+		<View
+			style={{
+				flex: 1,
+				alignItems: "center",
+				justifyContent: "center",
+				borderWidth: 1,
+			}}>
 			<View>
 				<ZoneButton navigation={navigation} zone={"red"} />
 			</View>
