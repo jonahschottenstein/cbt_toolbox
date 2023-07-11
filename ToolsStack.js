@@ -1,6 +1,7 @@
 import { createStackNavigator } from "@react-navigation/stack";
 import { Text } from "react-native";
 import { Breathing } from "./Breathing";
+import { Instruction } from "./Instruction";
 
 const Stack = createStackNavigator();
 
@@ -10,7 +11,7 @@ export const ToolsStack = ({ tools }) => {
 			tool.type === "breathing" ? (
 				Breathing
 			) : tool.type === "instruction" ? (
-				<Text>Instruction</Text>
+				Instruction
 			) : (
 				<Text>Video</Text>
 			);
@@ -18,8 +19,7 @@ export const ToolsStack = ({ tools }) => {
 		return component;
 	};
 
-	const breathingOptions = tools[0] ? tools[0]["value"] : null;
-	console.log("BREATHING OPTIONS", breathingOptions);
+	const getToolValue = (tool) => tool?.value || null;
 	// if no tools, AddTool
 
 	return tools.length > 0 && tools[0]["type"] !== "" ? (
@@ -31,9 +31,8 @@ export const ToolsStack = ({ tools }) => {
 				<Stack.Screen
 					key={tool.index}
 					name={tool.type}
-					// component={Breathing}
 					component={getComponent(tool)}
-					initialParams={{ breathingData: breathingOptions }}
+					initialParams={{ toolValue: getToolValue(tool) }}
 				/>
 			))}
 		</Stack.Navigator>
