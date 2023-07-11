@@ -3,7 +3,7 @@ import { BreathingDisplay } from "./BreathingDisplay";
 
 export const Breathing = ({
 	route: {
-		params: { breathingData },
+		params: { toolValue },
 	},
 }) => {
 	// Still need to factor in sets
@@ -12,10 +12,9 @@ export const Breathing = ({
 	const [startTime, setStartTime] = useState(null);
 	const [now, setNow] = useState(null);
 	const intervalRef = useRef(null);
-	const secondsPassedRef = useRef(breathingData.inhale);
+	const secondsPassedRef = useRef(toolValue.inhale);
 
-	const currentCommandSeconds =
-		breathingData && command && breathingData[command];
+	const currentCommandSeconds = toolValue && command && toolValue[command];
 
 	useEffect(() => {
 		if (startTime != null && now != null) {
@@ -51,7 +50,7 @@ export const Breathing = ({
 
 	function handleReset() {
 		clearInterval(intervalRef.current);
-		secondsPassedRef.current = breathingData["inhale"];
+		secondsPassedRef.current = toolValue["inhale"];
 		setStartTime(null);
 		setNow(null);
 		setIsRunning(false);
