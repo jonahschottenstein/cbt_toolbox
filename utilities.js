@@ -14,3 +14,10 @@ export const getToolTypeIndex = (tool, sameTypeTools) => {
 
 	return toolTypeIndex;
 };
+
+export const getNavAction = (tool, nextTool) => {
+	const isSameComponent = tool.type === nextTool.type;
+	const navAction = isSameComponent ? "push" : "navigate";
+
+	return navAction;
+};
