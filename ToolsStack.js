@@ -23,9 +23,8 @@ export const ToolsStack = ({ tools }) => {
 		return component;
 	};
 
-	// if no tools, AddTool
-
-	const getNextTool = (currentToolIndex, tools) => tools[currentToolIndex + 1];
+	const getNextTool = (currentToolIndex, tools) =>
+		tools.find((tool) => tool.index > currentToolIndex && tool.type);
 
 	return tools.length > 0 && tools[0]["type"] !== "" ? (
 		<Stack.Navigator>
