@@ -1,10 +1,13 @@
 import { useEffect, useRef, useState } from "react";
 import { BreathingDisplay } from "./BreathingDisplay";
+import { Button } from "react-native-paper";
+import { NextToolButton } from "./NextToolButton";
 
 export const Breathing = ({
 	route: {
-		params: { toolValue },
+		params: { tool, nextTool, tools },
 	},
+	navigation,
 }) => {
 	// Still need to factor in sets
 	const [isRunning, setIsRunning] = useState(false);
@@ -12,6 +15,7 @@ export const Breathing = ({
 	const [startTime, setStartTime] = useState(null);
 	const [now, setNow] = useState(null);
 	const intervalRef = useRef(null);
+	const toolValue = tool.value;
 	const secondsPassedRef = useRef(toolValue.inhale);
 
 	const currentCommandSeconds = toolValue && command && toolValue[command];
@@ -73,12 +77,20 @@ export const Breathing = ({
 	}
 
 	return (
-		<BreathingDisplay
-			isRunning={isRunning}
-			secondsPassed={secondsPassedRef.current}
-			command={command}
-			onStartClick={handleStart}
-			onResetClick={handleReset}
-		/>
+		<>
+			<BreathingDisplay
+				isRunning={isRunning}
+				secondsPassed={secondsPassedRef.current}
+				command={command}
+				onStartClick={handleStart}
+				onResetClick={handleReset}
+			/>
+			<NextToolButton
+				navigation={navigation}
+				tool={tool}
+				nextTool={nextTool}
+				tools={tools}
+			/>
+		</>
 	);
 };
