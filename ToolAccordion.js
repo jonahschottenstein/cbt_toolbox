@@ -46,8 +46,7 @@ export const ToolAccordion = ({ accordionProps, itemProps }) => {
 							onPress={() =>
 								dispatch({
 									type: "deleted",
-									zone: itemProps.zone,
-									toolIndex: itemProps.toolIndex,
+									incompleteTools: { [itemProps.zone]: [itemProps.toolIndex] },
 								})
 							}>
 							Delete
