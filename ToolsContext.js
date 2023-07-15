@@ -24,7 +24,7 @@ export function useToolsDispatch() {
 }
 
 function toolsReducer(tools, action) {
-	const zoneTools = [...tools[action.zone]];
+	const zoneTools = action?.zone && [...tools[action.zone]];
 
 	switch (action.type) {
 		case "added": {
@@ -60,16 +60,31 @@ function toolsReducer(tools, action) {
 			return { ...tools, [action.zone]: updatedZoneTools };
 		}
 		case "deleted": {
-			const filteredTools = zoneTools.filter(
-				(tool) => tool.index !== action.toolIndex
-			);
-			const updatedZoneTools = filteredTools.map((tool, newIndex) => ({
-				...tool,
-				index: newIndex,
-			}));
-			console.log("DELETED", updatedZoneTools);
+			const updatedTools = { ...tools };
+			const incompleteTools = action.incompleteTools;
 
-			return { ...tools, [action.zone]: updatedZoneTools };
+			for (const [zone, zoneTools] of Object.entries(tools)) {
+				const incompleteZoneIndexes = incompleteTools?.[zone];
+
+				if (!incompleteZoneIndexes || incompleteZoneIndexes.length < 1) {
+					continue;
+				} else {
+					const filteredZoneTools = zoneTools.filter(
+						(zoneTool) => !incompleteZoneIndexes.includes(zoneTool.index)
+					);
+					const updatedZoneTools = filteredZoneTools.map(
+						(zoneTool, newIndex) => ({
+							...zoneTool,
+							index: newIndex,
+						})
+					);
+
+					updatedTools[zone] = updatedZoneTools;
+				}
+			}
+
+			console.log("DELETED UPDATED TOOLS", updatedTools);
+			return updatedTools;
 		}
 		case "changed_breathing_value": {
 			const updatedZoneTools = zoneTools.map((tool) => {
