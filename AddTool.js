@@ -6,7 +6,12 @@ export const AddTool = ({ zone }) => {
 	const dispatch = useToolsDispatch();
 
 	return (
-		<View style={{ alignItems: "center", margin: 10 }}>
+		<View
+			style={{
+				alignItems: "center",
+				alignSelf: "center",
+				margin: 10,
+			}}>
 			<Button
 				icon="plus-circle"
 				mode="contained"
