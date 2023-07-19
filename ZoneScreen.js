@@ -10,7 +10,9 @@ export const ZoneScreen = ({ route: { params } }) => {
 	const zoneTools = tools[zone];
 
 	return (
-		<ScrollView style={{ flex: 1 }}>
+		<ScrollView
+			style={{ flex: 1 }}
+			contentContainerStyle={{ flex: 1, justifyContent: "space-between" }}>
 			<ToolAccordionsGroup>
 				{zoneTools.map((tool, index) => (
 					<ToolAccordion
