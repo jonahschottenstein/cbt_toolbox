@@ -23,7 +23,13 @@ export const Instruction = ({
 				/>
 			)}
 			<Text
-				style={{ borderWidth: 1, fontSize: 20, padding: 10, width: "100%" }}>
+				style={{
+					borderWidth: 1,
+					fontSize: 20,
+					padding: 15,
+					width: "100%",
+					flex: 1,
+				}}>
 				{toolValue.message}
 			</Text>
 			{nextTool && (
