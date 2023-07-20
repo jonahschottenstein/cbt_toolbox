@@ -48,6 +48,8 @@ function toolsReducer(tools, action) {
 							? { inhale: 5.99, hold: 5.99, exhale: 5.99, rest: 5.99, sets: 5 }
 							: action.nextToolType === "instruction"
 							? { message: "", image: null }
+							: action.nextToolType === "video"
+							? { video: null }
 							: null;
 					// Still need to add initial toolValue for video
 					return { ...tool, type: action.nextToolType, value: toolValue };
