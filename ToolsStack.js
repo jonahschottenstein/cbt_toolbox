@@ -1,11 +1,11 @@
 import { createStackNavigator } from "@react-navigation/stack";
-import { Text } from "react-native";
 import { Breathing } from "./Breathing";
 import { Instruction } from "./Instruction";
 import { capitalize, getSameTypeTools, getToolTypeIndex } from "./utilities";
 import { useTools } from "./ToolsContext";
 import { useCurrentZone } from "./CurrentZoneContext";
 import { ZoneButtons } from "./ZoneButtons";
+import { VideoComp } from "./Video";
 
 const Stack = createStackNavigator();
 
@@ -17,16 +17,20 @@ export const ToolsStack = () => {
 	const zoneTools = tools[currentZone];
 
 	const getComponent = (tool) => {
-		const component =
-			tool.type === "breathing" ? (
-				Breathing
-			) : tool.type === "instruction" ? (
-				Instruction
-			) : (
-				<Text>Video</Text>
-			);
-
-		return component;
+		switch (tool.type) {
+			case "breathing": {
+				return Breathing;
+			}
+			case "instruction": {
+				return Instruction;
+			}
+			case "video": {
+				VideoComp;
+			}
+			default: {
+				throw Error("Unknown tool type: " + tool.type);
+			}
+		}
 	};
 
 	const getNextTool = (currentToolIndex, tools) =>
