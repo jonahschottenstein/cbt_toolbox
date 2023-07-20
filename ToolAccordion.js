@@ -4,6 +4,7 @@ import { BreathingInputsGroup } from "./BreathingInputsGroup";
 import { ToolSelector } from "./ToolSelector";
 import { InstructionInputsGroup } from "./InstructionInputsGroup";
 import { useToolsDispatch } from "./ToolsContext";
+import { VideoInputsGroup } from "./VideoInputsGroup";
 
 export const ToolAccordion = ({ accordionProps, itemProps }) => {
 	const dispatch = useToolsDispatch();
@@ -30,6 +31,11 @@ export const ToolAccordion = ({ accordionProps, itemProps }) => {
 							/>
 						) : itemProps.toolType === "instruction" ? (
 							<InstructionInputsGroup
+								zone={itemProps.zone}
+								toolIndex={itemProps.toolIndex}
+							/>
+						) : itemProps.toolType === "video" ? (
+							<VideoInputsGroup
 								zone={itemProps.zone}
 								toolIndex={itemProps.toolIndex}
 							/>
