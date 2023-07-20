@@ -49,23 +49,14 @@ export const BottomTabs = () => {
 	};
 	console.log("GET INCOMPLETE", getIncompleteTools(tools));
 
-	const getIncompleteToolsMessages = (tools) => {
-		// NEED TO FIX
-		const data = getIncompleteTools(tools).map((obj) => ({
-			[Object.keys(obj)[0]]: JSON.stringify(
-				Object.values(obj).map((zoneTools) =>
-					zoneTools.map((zoneTool) => zoneTool.index + 1)
-				)[0]
-			),
-		}));
-		const messages = data.map((obj) => {
-			const zone = Object.keys(obj)[0];
-			const indexes = Object.values(obj)[0];
+	const getIncompleteToolsMessage = (tools) => {
+		const incompleteTools = getIncompleteTools(tools);
+		let message = "Incomplete tools:";
+		for (const [zone, indexes] of Object.entries(incompleteTools)) {
+			message = message.concat(`\n${zone} zone tools: ${indexes}`);
+		}
 
-			return `Incomplete ${zone} tools: ${indexes}`;
-		});
-
-		return messages;
+		return message;
 	};
 
 	const hasIncompleteToolsBool = (tools) => {
@@ -101,10 +92,9 @@ export const BottomTabs = () => {
 
 							Alert.alert(
 								"Discard incomplete tools?",
-								"You have incomplete tools in your toolbox. Are you sure you want to discard them and leave the screen?",
-								//  +
-								// 	" " +
-								// 	getIncompleteToolsMessages(tools)
+								"You have incomplete tools in your toolbox. Are you sure you want to discard them and leave the screen?" +
+									" " +
+									getIncompleteToolsMessage(tools),
 								[
 									{ text: "Don't leave", style: "cancel", onPress: () => {} },
 									{
