@@ -3,6 +3,7 @@ import { ToolAccordionsGroup } from "./ToolAccordionsGroup";
 import { useTools } from "./ToolsContext";
 import { ToolAccordion } from "./ToolAccordion";
 import { AddTool } from "./AddTool";
+import { capitalize } from "./utilities";
 
 export const ZoneScreen = ({ route: { params } }) => {
 	const zone = params.zone;
@@ -20,11 +21,7 @@ export const ZoneScreen = ({ route: { params } }) => {
 						// Remember to change key value
 						accordionProps={{
 							title:
-								tool.index +
-									1 +
-									". " +
-									tool.type.slice(0, 1).toUpperCase() +
-									tool.type.slice(1) || "Select tool",
+								tool.index + 1 + ". " + capitalize(tool.type) || "Select tool",
 							id: tool.index,
 						}}
 						itemProps={{ zone, toolType: tool.type, toolIndex: tool.index }}
