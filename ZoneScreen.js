@@ -20,8 +20,11 @@ export const ZoneScreen = ({ route: { params } }) => {
 						// Remember to change key value
 						accordionProps={{
 							title:
-								tool.type.slice(0, 1).toUpperCase() + tool.type.slice(1) ||
-								"Select tool",
+								tool.index +
+									1 +
+									". " +
+									tool.type.slice(0, 1).toUpperCase() +
+									tool.type.slice(1) || "Select tool",
 							id: tool.index,
 						}}
 						itemProps={{ zone, toolType: tool.type, toolIndex: tool.index }}
