@@ -9,3 +9,13 @@ export const storeData = async (value) => {
 		console.log("storeData error", e);
 	}
 };
+
+export const getData = async () => {
+	try {
+		const jsonValue = await AsyncStorage.getItem("toolsData");
+		return jsonValue != null ? JSON.parse(jsonValue) : null;
+	} catch (e) {
+		// error reading value
+		console.log("getData error", e);
+	}
+};
