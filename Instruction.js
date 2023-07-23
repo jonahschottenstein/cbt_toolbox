@@ -24,7 +24,6 @@ export const Instruction = ({
 			)}
 			<Text
 				style={{
-					borderWidth: 1,
 					fontSize: 20,
 					padding: 15,
 					width: "100%",
