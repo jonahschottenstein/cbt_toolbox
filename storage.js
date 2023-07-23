@@ -10,10 +10,16 @@ export const storeData = async (value) => {
 	}
 };
 
-export const getData = async () => {
+export const getData = async (dispatch) => {
 	try {
 		const jsonValue = await AsyncStorage.getItem("toolsData");
-		return jsonValue != null ? JSON.parse(jsonValue) : null;
+		console.log("JSON VALUE", jsonValue);
+		const data = jsonValue != null ? JSON.parse(jsonValue) : null;
+		console.log("DATA", data);
+		dispatch({
+			type: "retrieved",
+			toolsData: data,
+		});
 	} catch (e) {
 		// error reading value
 		console.log("getData error", e);
