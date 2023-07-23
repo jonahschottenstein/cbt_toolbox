@@ -1,10 +1,15 @@
-import { createContext, useContext, useReducer } from "react";
+import { createContext, useContext, useEffect, useReducer } from "react";
+import { getData, storeData } from "./storage";
 
 export const ToolsContext = createContext(null);
 export const ToolsDispatchContext = createContext(null);
 
 export function ToolsProvider({ children }) {
 	const [tools, dispatch] = useReducer(toolsReducer, initialTools);
+
+	useEffect(() => {
+		getData(dispatch);
+	}, []);
 
 	return (
 		<ToolsContext.Provider value={tools}>
