@@ -41,9 +41,11 @@ function toolsReducer(tools, action) {
 				...indexedZoneTools,
 				{ index: indexedZoneTools.length, type: "", value: null },
 			];
-			console.log("ADDED", updatedZoneTools);
+			const updatedTools = { ...tools, [action.zone]: updatedZoneTools };
+			storeData(updatedTools);
 
-			return { ...tools, [action.zone]: updatedZoneTools };
+			console.log("ADDED", updatedZoneTools);
+			return updatedTools;
 		}
 		case "changed_tool_type": {
 			const updatedZoneTools = zoneTools.map((tool) => {
@@ -56,15 +58,17 @@ function toolsReducer(tools, action) {
 							: action.nextToolType === "video"
 							? { video: null }
 							: null;
-					// Still need to add initial toolValue for video
+
 					return { ...tool, type: action.nextToolType, value: toolValue };
 				} else {
 					return tool;
 				}
 			});
-			console.log("CHANGED_TOOL_TYPE", updatedZoneTools);
+			const updatedTools = { ...tools, [action.zone]: updatedZoneTools };
+			storeData(updatedTools);
 
-			return { ...tools, [action.zone]: updatedZoneTools };
+			console.log("CHANGED_TOOL_TYPE", updatedZoneTools);
+			return updatedTools;
 		}
 		case "deleted": {
 			const updatedTools = { ...tools };
@@ -89,6 +93,7 @@ function toolsReducer(tools, action) {
 					updatedTools[zone] = updatedZoneTools;
 				}
 			}
+			storeData(updatedTools);
 
 			console.log("DELETED UPDATED TOOLS", updatedTools);
 			return updatedTools;
@@ -107,9 +112,11 @@ function toolsReducer(tools, action) {
 					return tool;
 				}
 			});
-			console.log("CHANGED BREATHING VALUE", updatedZoneTools);
+			const updatedTools = { ...tools, [action.zone]: updatedZoneTools };
+			storeData(updatedTools);
 
-			return { ...tools, [action.zone]: updatedZoneTools };
+			console.log("CHANGED BREATHING VALUE", updatedZoneTools);
+			return updatedTools;
 		}
 		case "changed_instruction_value": {
 			const updatedZoneTools = zoneTools.map((tool) => {
@@ -125,9 +132,11 @@ function toolsReducer(tools, action) {
 					return tool;
 				}
 			});
-			console.log("CHANGED_INSTRUCTION_VALUE", updatedZoneTools);
+			const updatedTools = { ...tools, [action.zone]: updatedZoneTools };
+			storeData(updatedTools);
 
-			return { ...tools, [action.zone]: updatedZoneTools };
+			console.log("CHANGED_INSTRUCTION_VALUE", updatedZoneTools);
+			return updatedTools;
 		}
 		case "changed_video_value": {
 			const updatedZoneTools = zoneTools.map((tool) => {
@@ -143,9 +152,22 @@ function toolsReducer(tools, action) {
 					return tool;
 				}
 			});
-			console.log("CHANGED_VIDEO_VALUE", updatedZoneTools);
+			const updatedTools = { ...tools, [action.zone]: updatedZoneTools };
+			storeData(updatedTools);
 
-			return { ...tools, [action.zone]: updatedZoneTools };
+			console.log("CHANGED_VIDEO_VALUE", updatedZoneTools);
+			return updatedTools;
+		}
+		case "retrieved": {
+			const initialTools = {
+				blue: [],
+				yellow: [],
+				red: [],
+			};
+			const toolsData = action.toolsData;
+
+			console.log("RETRIEVED", toolsData);
+			return toolsData ? { ...toolsData } : initialTools;
 		}
 		default: {
 			throw Error("Unknown action: " + action.type);
