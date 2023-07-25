@@ -51,9 +51,12 @@ export const BottomTabs = () => {
 
 	const getIncompleteToolsMessage = (tools) => {
 		const incompleteTools = getIncompleteTools(tools);
-		let message = "Incomplete tools:";
+		let message = "";
 		for (const [zone, indexes] of Object.entries(incompleteTools)) {
-			message = message.concat(`\n${zone} zone tools: ${indexes}`);
+			const toolNumbers = indexes.map((index) => `\nTool ${index + 1}`);
+			message = message.concat(
+				`\nIncomplete ${zone} zone tools:${toolNumbers}`
+			);
 		}
 
 		return message;
@@ -92,7 +95,7 @@ export const BottomTabs = () => {
 
 							Alert.alert(
 								"Discard incomplete tools?",
-								"You have incomplete tools in your toolbox. Are you sure you want to discard them and leave the screen?" +
+								"You have incomplete tools in your toolbox. Are you sure you want to discard them and leave the screen?\n" +
 									" " +
 									getIncompleteToolsMessage(tools),
 								[
