@@ -7,6 +7,7 @@ import { Alert } from "react-native";
 export const ZoneButton = ({ navigation, zone }) => {
 	const tools = useTools();
 	const onPress = useCurrentZoneSetter();
+	const hasTools = tools[zone].filter((tool) => tool.type).length > 0;
 
 	return (
 		<Button
@@ -23,10 +24,8 @@ export const ZoneButton = ({ navigation, zone }) => {
 			}}
 			mode="elevated"
 			buttonColor={zone}
-			onPressIn={() => onPress(zone)}
+			onPressIn={() => hasTools && onPress(zone)}
 			onPressOut={() => {
-				const hasTools = tools[zone].filter((tool) => tool.type).length > 0;
-
 				if (hasTools) {
 					tools[zone].filter((tool) => tool.type).length > 0 &&
 						navigation.navigate(
