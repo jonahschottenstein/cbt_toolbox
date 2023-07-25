@@ -112,6 +112,8 @@ export const BottomTabs = () => {
 							);
 						} else {
 							setFocusedScreen("Home");
+							navigation.navigate("Home");
+							// Need this to happen earlier/quicker
 						}
 					},
 				})}
