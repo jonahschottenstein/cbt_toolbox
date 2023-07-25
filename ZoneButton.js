@@ -2,6 +2,7 @@ import { useCurrentZoneSetter } from "./CurrentZoneContext";
 import { useTools } from "./ToolsContext";
 import { Button } from "react-native-paper";
 import { capitalize } from "./utilities";
+import { Alert } from "react-native";
 
 export const ZoneButton = ({ navigation, zone }) => {
 	const tools = useTools();
@@ -23,12 +24,20 @@ export const ZoneButton = ({ navigation, zone }) => {
 			mode="elevated"
 			buttonColor={zone}
 			onPressIn={() => onPress(zone)}
-			onPressOut={() =>
-				tools[zone].filter((tool) => tool.type).length > 0 &&
-				navigation.navigate(
-					capitalize(tools[zone][0]["type"]) + "-" + tools[zone][0]["index"]
-				)
-			}
+			onPressOut={() => {
+				const hasTools = tools[zone].filter((tool) => tool.type).length > 0;
+
+				if (hasTools) {
+					tools[zone].filter((tool) => tool.type).length > 0 &&
+						navigation.navigate(
+							capitalize(tools[zone][0]["type"]) + "-" + tools[zone][0]["index"]
+						);
+				} else {
+					Alert.alert(
+						`Navigate to Toolbox Editor to add ${capitalize(zone)} Zone tools`
+					);
+				}
+			}}
 		/>
 	);
 };
