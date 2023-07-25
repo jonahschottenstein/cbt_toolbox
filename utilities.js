@@ -21,3 +21,11 @@ export const getNavAction = (tool, nextTool) => {
 
 	return navAction;
 };
+
+export const handleNextToolNav = (tool, nextTool, tools, navigation) => {
+	navigation[getNavAction(tool, nextTool)](
+		capitalize(nextTool.type) +
+			"-" +
+			getToolTypeIndex(nextTool, getSameTypeTools(nextTool, tools))
+	);
+};
