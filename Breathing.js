@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { BreathingDisplay } from "./BreathingDisplay";
 import { Button } from "react-native-paper";
 import { NextToolButton } from "./NextToolButton";
+import { handleNextToolNav } from "./utilities";
 
 export const Breathing = ({
 	route: {
@@ -17,6 +18,7 @@ export const Breathing = ({
 	const intervalRef = useRef(null);
 	const toolValue = tool.value;
 	const secondsPassedRef = useRef(toolValue.inhale);
+	const setsRef = useRef(toolValue["sets"]);
 
 	const currentCommandSeconds = toolValue && command && toolValue[command];
 
@@ -33,6 +35,7 @@ export const Breathing = ({
 			intervalRef.current = setInterval(() => {
 				setNow(Date.now());
 			}, 10);
+			handleSetsCompleted();
 		}
 	}, [now, startTime, currentCommandSeconds]);
 
@@ -74,6 +77,22 @@ export const Breathing = ({
 				return "inhale";
 			}
 		});
+	}
+
+	function handleSetsCompleted() {
+		// Early returns should maybe go in effect hook
+		if (!(secondsPassedRef.current < 1.01) || command !== "rest") return;
+
+		setsRef.current = setsRef.current - 1;
+		console.log("SETS REF", setsRef.current);
+
+		if (setsRef.current !== 0) return;
+
+		handleReset();
+
+		if (nextTool) {
+			handleNextToolNav(tool, nextTool, tools, navigation);
+		}
 	}
 
 	return (
