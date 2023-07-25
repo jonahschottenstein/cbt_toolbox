@@ -32,7 +32,7 @@ export const ZoneScreen = ({ route: { params } }) => {
 					/>
 				))}
 			</ToolAccordionsGroup>
-			<AddTool zone={zone} />
+			<AddTool zone={zone} zoneToolsCount={zoneTools.length} />
 		</ScrollView>
 	);
 };
