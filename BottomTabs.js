@@ -108,14 +108,17 @@ export const BottomTabs = () => {
 												type: "deleted",
 												incompleteTools: getIncompleteTools(tools),
 											});
-											navigation.navigate("Home");
+											// navigation.navigate("Home");
+											navigation.navigate("ZoneButtons");
+											// Need this to happen earlier/quicker
 										},
 									},
 								]
 							);
 						} else {
 							setFocusedScreen("Home");
-							navigation.navigate("Home");
+							// navigation.navigate("Home");
+							navigation.navigate("ZoneButtons");
 							// Need this to happen earlier/quicker
 						}
 					},
