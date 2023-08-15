@@ -8,9 +8,10 @@ export const AddTool = ({ zone, zoneToolsCount }) => {
 	return (
 		<View
 			style={{
-				alignItems: "center",
-				alignSelf: "center",
+				// alignItems: "center",
+				// alignSelf: "center",
 				margin: 10,
+				backgroundColor: "rgba(103, 80, 164, 1)",
 			}}>
 			<Button
 				icon="plus-circle"
