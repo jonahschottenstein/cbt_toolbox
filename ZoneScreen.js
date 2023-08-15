@@ -5,7 +5,7 @@ import { ToolAccordion } from "./ToolAccordion";
 import { AddTool } from "./AddTool";
 import { capitalize } from "./utilities";
 
-export const ZoneScreen = ({ route: { params } }) => {
+/* export const ZoneScreen = ({ route: { params } }) => {
 	const zone = params.zone;
 	const tools = useTools();
 	const zoneTools = tools[zone];
@@ -34,5 +34,38 @@ export const ZoneScreen = ({ route: { params } }) => {
 			</ToolAccordionsGroup>
 			<AddTool zone={zone} zoneToolsCount={zoneTools.length} />
 		</ScrollView>
+	);
+}; */
+
+export const ZoneScreen = ({ route: { params } }) => {
+	const zone = params.zone;
+	const tools = useTools();
+	const zoneTools = tools[zone];
+
+	return (
+		<View style={{ flex: 1 }}>
+			<ScrollView
+				style={{ flex: 1 }}
+				contentContainerStyle={{
+					justifyContent: "space-between",
+				}}>
+				<ToolAccordionsGroup>
+					{zoneTools.map((tool, index) => (
+						<ToolAccordion
+							key={index}
+							// Remember to change key value
+							accordionProps={{
+								title: tool.type
+									? tool.index + 1 + ". " + capitalize(tool.type)
+									: tool.index + 1 + ". " + "Select tool",
+								id: tool.index,
+							}}
+							itemProps={{ zone, toolType: tool.type, toolIndex: tool.index }}
+						/>
+					))}
+				</ToolAccordionsGroup>
+			</ScrollView>
+			<AddTool zone={zone} zoneToolsCount={zoneTools.length} />
+		</View>
 	);
 };
