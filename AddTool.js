@@ -11,9 +11,9 @@ export const AddTool = ({ zone, zoneToolsCount }) => {
 				// alignItems: "center",
 				// alignSelf: "center",
 				margin: 10,
-				backgroundColor: "rgba(103, 80, 164, 1)",
 			}}>
 			<Button
+				style={{ borderRadius: 0 }}
 				icon="plus-circle"
 				mode="contained"
 				disabled={zoneToolsCount >= 5 ? true : false}
