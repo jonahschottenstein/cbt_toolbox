@@ -52,9 +52,9 @@ export const ZoneButtons = ({ navigation }) => {
 					justifyContent: "space-evenly",
 					marginVertical: 15,
 				}}>
-				<ZoneButton navigation={navigation} zone={"red"} />
-				<ZoneButton navigation={navigation} zone={"yellow"} />
 				<ZoneButton navigation={navigation} zone={"blue"} />
+				<ZoneButton navigation={navigation} zone={"yellow"} />
+				<ZoneButton navigation={navigation} zone={"red"} />
 			</View>
 		</View>
 	);
