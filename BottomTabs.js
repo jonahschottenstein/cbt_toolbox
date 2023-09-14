@@ -123,6 +123,7 @@ export const BottomTabs = () => {
 						}
 					},
 				})}
+				options={{ headerShown: false }}
 			/>
 			<Tab.Screen
 				name="Toolbox Editor"
