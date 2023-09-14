@@ -38,7 +38,11 @@ export const ToolsStack = () => {
 
 	return (
 		<Stack.Navigator>
-			<Stack.Screen name="ZoneButtons" component={ZoneButtons} />
+			<Stack.Screen
+				name="ZoneButtons"
+				component={ZoneButtons}
+				options={{ title: "Home" }}
+			/>
 			{zoneTools &&
 				zoneTools.length > 0 &&
 				zoneTools[0]["type"] !== "" &&
