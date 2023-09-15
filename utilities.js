@@ -29,3 +29,6 @@ export const handleNextToolNav = (tool, nextTool, tools, navigation) => {
 			getToolTypeIndex(nextTool, getSameTypeTools(nextTool, tools))
 	);
 };
+
+export const getToolName = (zone, tool) =>
+	`${capitalize(zone)} (${tool.index + 1})`;
