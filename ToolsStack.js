@@ -1,7 +1,12 @@
 import { createStackNavigator } from "@react-navigation/stack";
 import { Breathing } from "./Breathing";
 import { Instruction } from "./Instruction";
-import { capitalize, getSameTypeTools, getToolTypeIndex } from "./utilities";
+import {
+	capitalize,
+	getSameTypeTools,
+	getToolName,
+	getToolTypeIndex,
+} from "./utilities";
 import { useTools } from "./ToolsContext";
 import { useCurrentZone } from "./CurrentZoneContext";
 import { ZoneButtons } from "./ZoneButtons";
@@ -52,11 +57,7 @@ export const ToolsStack = () => {
 						return (
 							<Stack.Screen
 								key={tool.index}
-								name={
-									capitalize(tool.type) +
-									"-" +
-									getToolTypeIndex(tool, getSameTypeTools(tool, zoneTools))
-								}
+								name={getToolName(currentZone, tool)}
 								component={getComponent(tool)}
 								initialParams={{
 									tool: tool,

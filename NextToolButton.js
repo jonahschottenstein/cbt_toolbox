@@ -3,19 +3,21 @@ import {
 	capitalize,
 	getNavAction,
 	getSameTypeTools,
+	getToolName,
 	getToolTypeIndex,
 } from "./utilities";
+import { useCurrentZone } from "./CurrentZoneContext";
 
 export const NextToolButton = ({ navigation, tool, nextTool, tools }) => {
+	const currentZone = useCurrentZone();
+
 	return (
 		<Button
 			style={{ alignSelf: "center", margin: 10 }}
 			mode="outlined"
 			onPress={() =>
 				navigation[getNavAction(tool, nextTool)](
-					capitalize(nextTool.type) +
-						"-" +
-						getToolTypeIndex(nextTool, getSameTypeTools(nextTool, tools))
+					getToolName(currentZone, nextTool)
 				)
 			}>
 			Continue
