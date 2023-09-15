@@ -12,7 +12,6 @@ export const Instruction = ({
 	return (
 		<View
 			style={{
-				borderWidth: 1,
 				flex: 1,
 				alignItems: "center",
 			}}>
@@ -24,8 +23,9 @@ export const Instruction = ({
 			)}
 			<Text
 				style={{
-					fontSize: 20,
-					padding: 15,
+					fontSize: 24,
+					fontWeight: 700,
+					textAlign: "center",
 					width: "100%",
 					flex: 1,
 				}}>
