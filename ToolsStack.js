@@ -63,6 +63,7 @@ export const ToolsStack = () => {
 									tool: tool,
 									nextTool: getNextTool(tool.index, zoneTools),
 									tools: zoneTools,
+									zone: currentZone,
 								}}
 							/>
 						);
