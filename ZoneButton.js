@@ -40,7 +40,7 @@ export const ZoneButton = ({ navigation, zone }) => {
 						navigation.navigate(getToolName(zone, tools[zone][0]));
 				} else {
 					Alert.alert(
-						`Navigate to Toolbox Editor to add ${capitalize(zone)} Zone tools`
+						`Navigate to Toolbox to add ${capitalize(zone)} Zone tools`
 					);
 				}
 			}}>

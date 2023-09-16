@@ -19,6 +19,6 @@ const tabScreens = [
 	{ name: "red zone", component: ZoneScreen, componentProps: { zone: "red" } },
 ];
 
-export const ToolboxEditor = () => {
+export const Toolbox = () => {
 	return <TopTabs tabScreens={tabScreens} />;
 };

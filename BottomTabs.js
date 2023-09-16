@@ -1,6 +1,6 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { HomeScreen } from "./HomeScreen";
-import { ToolboxEditor } from "./ToolboxEditor";
+import { Toolbox } from "./ToolboxEditor";
 import { useState } from "react";
 import { useTools, useToolsDispatch } from "./ToolsContext";
 import { Alert } from "react-native";
@@ -126,12 +126,12 @@ export const BottomTabs = () => {
 				options={{ headerShown: false }}
 			/>
 			<Tab.Screen
-				name="Toolbox Editor"
-				component={ToolboxEditor}
+				name="Toolbox"
+				component={Toolbox}
 				listeners={{
 					tabPress: (e) => {
-						if (focusedScreen === "Toolbox Editor") return;
-						setFocusedScreen("Toolbox Editor");
+						if (focusedScreen === "Toolbox") return;
+						setFocusedScreen("Toolbox");
 					},
 				}}
 			/>
