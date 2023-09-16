@@ -1,6 +1,6 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { HomeScreen } from "./HomeScreen";
-import { Toolbox } from "./ToolboxEditor";
+import { Toolbox } from "./Toolbox";
 import { useState } from "react";
 import { useTools, useToolsDispatch } from "./ToolsContext";
 import { Alert } from "react-native";
