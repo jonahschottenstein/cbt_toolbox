@@ -22,13 +22,9 @@ export const getNavAction = (tool, nextTool) => {
 	return navAction;
 };
 
-export const handleNextToolNav = (tool, nextTool, tools, navigation) => {
-	navigation[getNavAction(tool, nextTool)](
-		capitalize(nextTool.type) +
-			"-" +
-			getToolTypeIndex(nextTool, getSameTypeTools(nextTool, tools))
-	);
-};
-
 export const getToolName = (zone, tool) =>
 	`${capitalize(zone)} (${tool.index + 1})`;
+
+export const handleNextToolNav = (zone, tool, nextTool, navigation) => {
+	navigation[getNavAction(tool, nextTool)](getToolName(zone, nextTool));
+};
