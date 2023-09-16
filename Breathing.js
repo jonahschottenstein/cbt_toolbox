@@ -6,7 +6,7 @@ import { handleNextToolNav } from "./utilities";
 
 export const Breathing = ({
 	route: {
-		params: { tool, nextTool, tools },
+		params: { tool, nextTool, tools, zone },
 	},
 	navigation,
 }) => {
@@ -91,7 +91,7 @@ export const Breathing = ({
 		handleReset();
 
 		if (nextTool) {
-			handleNextToolNav(tool, nextTool, tools, navigation);
+			handleNextToolNav(zone, tool, nextTool, navigation);
 		}
 	}
 
