@@ -4,7 +4,7 @@ import { Toolbox } from "./Toolbox";
 import { useState } from "react";
 import { useTools, useToolsDispatch } from "./ToolsContext";
 import { Alert } from "react-native";
-
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 const Tab = createBottomTabNavigator();
 
 export const BottomTabs = () => {
@@ -123,7 +123,16 @@ export const BottomTabs = () => {
 						}
 					},
 				})}
-				options={{ headerShown: false }}
+				options={{
+					headerShown: false,
+					tabBarIcon: () => (
+						<MaterialCommunityIcons
+							name="home"
+							size={24}
+							color={focusedScreen === "Home" ? "rgb(0, 122, 255)" : "#8E8E8F"}
+						/>
+					),
+				}}
 			/>
 			<Tab.Screen
 				name="Toolbox"
@@ -133,6 +142,17 @@ export const BottomTabs = () => {
 						if (focusedScreen === "Toolbox") return;
 						setFocusedScreen("Toolbox");
 					},
+				}}
+				options={{
+					tabBarIcon: () => (
+						<MaterialCommunityIcons
+							name="toolbox"
+							size={24}
+							color={
+								focusedScreen === "Toolbox" ? "rgb(0, 122, 255)" : "#8E8E8F"
+							}
+						/>
+					),
 				}}
 			/>
 		</Tab.Navigator>
