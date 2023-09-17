@@ -11,7 +11,7 @@ export const BottomTabs = () => {
 	const tools = useTools();
 	const dispatch = useToolsDispatch();
 
-	const [focusedScreen, setFocusedScreen] = useState();
+	const [focusedScreen, setFocusedScreen] = useState("Home");
 
 	const getIncompleteTools = (tools) => {
 		const incompleteToolsArr =
