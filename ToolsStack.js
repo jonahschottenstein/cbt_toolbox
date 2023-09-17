@@ -30,7 +30,7 @@ export const ToolsStack = () => {
 				return Instruction;
 			}
 			case "video": {
-				VideoComp;
+				return VideoComp;
 			}
 			default: {
 				throw Error("Unknown tool type: " + tool.type);
