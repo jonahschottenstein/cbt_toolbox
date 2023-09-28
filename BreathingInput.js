@@ -13,7 +13,7 @@ export const BreathingInput = ({ label, value, zone, toolIndex }) => {
 				justifyContent: "space-between",
 				margin: 10,
 			}}>
-			<Text>{label}</Text>
+			<Text style={{ fontSize: 20 }}>{label}</Text>
 			<InputSpinner
 				max={10}
 				min={1}
