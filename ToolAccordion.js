@@ -45,6 +45,9 @@ export const ToolAccordion = ({ accordionProps, itemProps }) => {
 					}
 				/>
 				<List.Item
+					style={{
+						marginTop: 10,
+					}}
 					title={() => (
 						<Button
 							mode="contained-tonal"
