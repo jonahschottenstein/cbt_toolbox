@@ -1,6 +1,6 @@
 import { Text, View } from "react-native";
 import InputSpinner from "react-native-input-spinner";
-import { useToolsDispatch } from "./ToolsContext";
+import { useToolsDispatch } from "../context/ToolsContext";
 
 export const BreathingInput = ({ label, value, zone, toolIndex }) => {
 	const dispatch = useToolsDispatch();

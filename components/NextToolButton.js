@@ -5,8 +5,8 @@ import {
 	getSameTypeTools,
 	getToolName,
 	getToolTypeIndex,
-} from "./utilities";
-import { useCurrentZone } from "./CurrentZoneContext";
+} from "../utils/utilities";
+import { useCurrentZone } from "../context/CurrentZoneContext";
 
 export const NextToolButton = ({ navigation, tool, nextTool, tools }) => {
 	const currentZone = useCurrentZone();

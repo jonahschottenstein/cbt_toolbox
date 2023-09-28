@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { BreathingDisplay } from "./BreathingDisplay";
 import { Button } from "react-native-paper";
 import { NextToolButton } from "./NextToolButton";
-import { handleNextToolNav } from "./utilities";
+import { handleNextToolNav } from "../utils/utilities";
 
 export const Breathing = ({
 	route: {

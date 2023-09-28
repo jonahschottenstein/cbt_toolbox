@@ -1,7 +1,7 @@
 import * as ImagePicker from "expo-image-picker";
 import { Button, TextInput } from "react-native-paper";
 import { Image, View } from "react-native";
-import { useTools, useToolsDispatch } from "./ToolsContext";
+import { useTools, useToolsDispatch } from "../context/ToolsContext";
 
 export const InstructionInputsGroup = ({ zone, toolIndex }) => {
 	const tools = useTools();

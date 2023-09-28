@@ -3,7 +3,7 @@ import { List, Button, Divider } from "react-native-paper";
 import { BreathingInputsGroup } from "./BreathingInputsGroup";
 import { ToolSelector } from "./ToolSelector";
 import { InstructionInputsGroup } from "./InstructionInputsGroup";
-import { useToolsDispatch } from "./ToolsContext";
+import { useToolsDispatch } from "../context/ToolsContext";
 import { VideoInputsGroup } from "./VideoInputsGroup";
 
 export const ToolAccordion = ({ accordionProps, itemProps }) => {

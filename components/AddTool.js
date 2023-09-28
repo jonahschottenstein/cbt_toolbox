@@ -1,6 +1,6 @@
 import { View } from "react-native";
 import { Button } from "react-native-paper";
-import { useToolsDispatch } from "./ToolsContext";
+import { useToolsDispatch } from "../context/ToolsContext";
 
 export const AddTool = ({ zone, zoneToolsCount }) => {
 	const dispatch = useToolsDispatch();

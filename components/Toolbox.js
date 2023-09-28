@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View } from "react-native";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
-import { TopTabs } from "./TopTabs";
-import { ZoneScreen } from "./ZoneScreen";
+import { TopTabs } from "../navigation/TopTabs";
+import { ZoneScreen } from "../screens/ZoneScreen";
 
 const Tab = createMaterialTopTabNavigator();
 

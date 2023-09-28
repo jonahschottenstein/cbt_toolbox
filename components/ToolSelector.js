@@ -1,6 +1,6 @@
 import { View } from "react-native";
 import { SegmentedButtons } from "react-native-paper";
-import { useTools, useToolsDispatch } from "./ToolsContext";
+import { useTools, useToolsDispatch } from "../context/ToolsContext";
 
 export const ToolSelector = ({ zone, toolIndex }) => {
 	const tools = useTools();

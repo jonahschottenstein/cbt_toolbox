@@ -1,16 +1,24 @@
 import { createStackNavigator } from "@react-navigation/stack";
-import { Breathing } from "./Breathing";
-import { Instruction } from "./Instruction";
+// import { Breathing } from "./Breathing";
+import { Breathing } from "../components/Breathing";
+// import { Instruction } from "./Instruction";
+import { Instruction } from "../components/Instruction";
+// import {
+// 	capitalize,
+// 	getSameTypeTools,
+// 	getToolName,
+// 	getToolTypeIndex,
+// } from "./utilities";
 import {
 	capitalize,
 	getSameTypeTools,
 	getToolName,
 	getToolTypeIndex,
-} from "./utilities";
-import { useTools } from "./ToolsContext";
-import { useCurrentZone } from "./CurrentZoneContext";
-import { ZoneButtons } from "./ZoneButtons";
-import { VideoComp } from "./Video";
+} from "../utils/utilities";
+import { useTools } from "../context/ToolsContext";
+import { useCurrentZone } from "../context/CurrentZoneContext";
+import { ZoneButtons } from "../components/ZoneButtons";
+import { VideoComp } from "../components/Video";
 
 const Stack = createStackNavigator();
 

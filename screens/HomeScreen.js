@@ -1,9 +1,9 @@
 import { View } from "react-native";
-import { ZoneButtons } from "./ZoneButtons";
+import { ZoneButtons } from "../components/ZoneButtons";
 import { useState } from "react";
-import { useTools } from "./ToolsContext";
-import { ToolsStack } from "./ToolsStack";
-import { CurrentZoneProvider } from "./CurrentZoneContext";
+import { useTools } from "../context/ToolsContext";
+import { ToolsStack } from "../navigation/ToolsStack";
+import { CurrentZoneProvider } from "../context/CurrentZoneContext";
 
 export const HomeScreen = () => {
 	return (

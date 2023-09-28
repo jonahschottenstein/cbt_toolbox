@@ -1,5 +1,5 @@
 import { BreathingInput } from "./BreathingInput";
-import { useTools } from "./ToolsContext";
+import { useTools } from "../context/ToolsContext";
 
 export const BreathingInputsGroup = ({ zone, toolIndex }) => {
 	const tools = useTools();

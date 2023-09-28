@@ -1,7 +1,7 @@
 import * as ImagePicker from "expo-image-picker";
 import { Video } from "expo-av";
 import { Button } from "react-native-paper";
-import { useTools, useToolsDispatch } from "./ToolsContext";
+import { useTools, useToolsDispatch } from "../context/ToolsContext";
 import { View } from "react-native";
 
 export const VideoInputsGroup = ({ zone, toolIndex }) => {

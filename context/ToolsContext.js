@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useReducer } from "react";
-import { getData, storeData } from "./storage";
+import { getData, storeData } from "../utils/storage";
 
 export const ToolsContext = createContext(null);
 export const ToolsDispatchContext = createContext(null);

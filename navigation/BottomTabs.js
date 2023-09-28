@@ -1,8 +1,8 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { HomeScreen } from "./HomeScreen";
-import { Toolbox } from "./Toolbox";
+import { HomeScreen } from "../screens/HomeScreen";
+import { Toolbox } from "../components/Toolbox";
 import { useState } from "react";
-import { useTools, useToolsDispatch } from "./ToolsContext";
+import { useTools, useToolsDispatch } from "../context/ToolsContext";
 import { Alert } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 const Tab = createBottomTabNavigator();

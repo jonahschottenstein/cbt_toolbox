@@ -1,9 +1,11 @@
 import { ScrollView, Text, View } from "react-native";
-import { ToolAccordionsGroup } from "./ToolAccordionsGroup";
-import { useTools } from "./ToolsContext";
-import { ToolAccordion } from "./ToolAccordion";
-import { AddTool } from "./AddTool";
-import { capitalize } from "./utilities";
+// import { ToolAccordionsGroup } from "./ToolAccordionsGroup";
+import { ToolAccordionsGroup } from "../components/ToolAccordionsGroup";
+// import { useTools } from "./ToolsContext";
+import { useTools } from "../context/ToolsContext";
+import { ToolAccordion } from "../components/ToolAccordion";
+import { AddTool } from "../components/AddTool";
+import { capitalize } from "../utils/utilities";
 
 /* export const ZoneScreen = ({ route: { params } }) => {
 	const zone = params.zone;
