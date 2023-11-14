@@ -1,7 +1,5 @@
 # CBT Toolbox
 
-![CBT Toolbox Logo](link_to_your_logo_image.png)
-
 ## Project Description
 
 **CBT Toolbox** is a mobile application based on the **Zones of Regulation**, a self-regulation framework rooted in cognitive behavioral therapy (CBT). This application is designed to empower children and neurodivergent adults to create custom sets of tools to help them manage their feelings in challenging circumstances.
